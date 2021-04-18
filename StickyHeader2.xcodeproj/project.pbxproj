@@ -47,6 +47,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4C13A6C262BF22B00101CD8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4F5AF51262B2E430088901D /* MainViewController.swift */,
+				F4C13A62262BC41C00101CD8 /* FirstViewController.swift */,
+				F4C13A65262BC4E100101CD8 /* SecondViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F4C13A6F262BF29700101CD8 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				F4F5AF12262B223C0088901D /* AppDelegate.swift */,
+				F4F5AF14262B223C0088901D /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		F4C13A71262BF2C900101CD8 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F4F5AF18262B223C0088901D /* Main.storyboard */,
+				F4F5AF1D262B223E0088901D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F4C13A72262BF2EA00101CD8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F4F5AF1B262B223E0088901D /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		F4F5AF06262B223C0088901D = {
 			isa = PBXGroup;
 			children = (
@@ -66,16 +102,12 @@
 		F4F5AF11262B223C0088901D /* StickyHeader2 */ = {
 			isa = PBXGroup;
 			children = (
-				F4F5AF12262B223C0088901D /* AppDelegate.swift */,
-				F4F5AF14262B223C0088901D /* SceneDelegate.swift */,
+				F4C13A6F262BF29700101CD8 /* AppDelegate */,
+				F4C13A71262BF2C900101CD8 /* Storyboard */,
 				F4F5AF2A262B2B770088901D /* ViewModel */,
-				F4F5AF51262B2E430088901D /* MainViewController.swift */,
-				F4C13A62262BC41C00101CD8 /* FirstViewController.swift */,
-				F4C13A65262BC4E100101CD8 /* SecondViewController.swift */,
+				F4C13A6C262BF22B00101CD8 /* Controller */,
 				F4F5AF2F262B2C1D0088901D /* Cell */,
-				F4F5AF18262B223C0088901D /* Main.storyboard */,
-				F4F5AF1B262B223E0088901D /* Assets.xcassets */,
-				F4F5AF1D262B223E0088901D /* LaunchScreen.storyboard */,
+				F4C13A72262BF2EA00101CD8 /* Assets */,
 				F4F5AF20262B223E0088901D /* Info.plist */,
 			);
 			path = StickyHeader2;

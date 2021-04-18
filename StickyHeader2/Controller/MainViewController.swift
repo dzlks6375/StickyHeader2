@@ -162,9 +162,8 @@ extension MainViewController: InnerTableViewScrollDelegate {
         }
                 
         let percentage = (headerViewHeightConstraint.constant) / 100
-                
-        stickyHeaderView.alpha = percentage
-        
+                                        
+        self.stickyHeaderView.alpha = percentage
     }
     
     func innerTableViewScrollEnded(withScrollDirection scrollDirection: DragDirection) {
@@ -188,6 +187,13 @@ extension MainViewController: InnerTableViewScrollDelegate {
             
             scrollToInitialView()
         }
+        
+        let percentage = (headerViewHeightConstraint.constant) / 100
+                        
+        UIView.animate(withDuration: 0.25) {
+            self.stickyHeaderView.alpha = percentage
+        }
+
     }
     
 

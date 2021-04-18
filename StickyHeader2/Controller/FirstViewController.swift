@@ -8,7 +8,21 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+enum DragDirection {
+    
+    case Up
+    case Down
+}
+
+protocol InnerTableViewScrollDelegate: class {
+    
+    var currentHeaderHeight: CGFloat { get }
+    
+    func innerTableViewDidScroll(withDistance scrollDistance: CGFloat)
+    func innerTableViewScrollEnded(withScrollDirection scrollDirection: DragDirection)
+}
+
+class FirstViewController: UIViewController {
         
     @IBOutlet weak var tableView: UITableView!
         
@@ -37,7 +51,7 @@ class SecondViewController: UIViewController {
 }
 
 
-extension SecondViewController: UITableViewDataSource {
+extension FirstViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -48,7 +62,7 @@ extension SecondViewController: UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: TabTableViewCellID) as? TabTableViewCell {
             
-            cell.cellLabel.text = "This is cell \(30 - indexPath.row)"
+            cell.cellLabel.text = "This is cell \(indexPath.row + 1)"
             return cell
         }
         
@@ -56,7 +70,7 @@ extension SecondViewController: UITableViewDataSource {
     }
 }
 
-extension SecondViewController: UITableViewDelegate {
+extension FirstViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
                 
@@ -99,7 +113,6 @@ extension SecondViewController: UITableViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
-            
             innerTableViewScrollDelegate?.innerTableViewScrollEnded(withScrollDirection: dragDirection)
     }
     

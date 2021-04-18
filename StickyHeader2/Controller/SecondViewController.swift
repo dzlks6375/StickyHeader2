@@ -8,21 +8,7 @@
 
 import UIKit
 
-enum DragDirection {
-    
-    case Up
-    case Down
-}
-
-protocol InnerTableViewScrollDelegate: class {
-    
-    var currentHeaderHeight: CGFloat { get }
-    
-    func innerTableViewDidScroll(withDistance scrollDistance: CGFloat)
-    func innerTableViewScrollEnded(withScrollDirection scrollDirection: DragDirection)
-}
-
-class FirstViewController: UIViewController {
+class SecondViewController: UIViewController {
         
     @IBOutlet weak var tableView: UITableView!
         
@@ -51,7 +37,7 @@ class FirstViewController: UIViewController {
 }
 
 
-extension FirstViewController: UITableViewDataSource {
+extension SecondViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -62,7 +48,7 @@ extension FirstViewController: UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: TabTableViewCellID) as? TabTableViewCell {
             
-            cell.cellLabel.text = "This is cell \(indexPath.row + 1)"
+            cell.cellLabel.text = "This is cell \(30 - indexPath.row)"
             return cell
         }
         
@@ -70,7 +56,7 @@ extension FirstViewController: UITableViewDataSource {
     }
 }
 
-extension FirstViewController: UITableViewDelegate {
+extension SecondViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
                 
@@ -107,7 +93,6 @@ extension FirstViewController: UITableViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-            
             innerTableViewScrollDelegate?.innerTableViewScrollEnded(withScrollDirection: dragDirection)
     }
     
@@ -116,6 +101,7 @@ extension FirstViewController: UITableViewDelegate {
             
             innerTableViewScrollDelegate?.innerTableViewScrollEnded(withScrollDirection: dragDirection)
     }
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
             
             innerTableViewScrollDelegate?.innerTableViewScrollEnded(withScrollDirection: dragDirection)
